@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import request from 'superagent';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+//need to input the actual pokemon data
+const data = [
+  {
+    character: 'some character 1',
+    quote: 'some quote 1',
+    img: 'some img 1'
+  },
+  {
+    character: 'some character 2',
+    quote: 'some quote 2',
+    img: 'some img 2'
+  },
+  {
+    character: 'some character3',
+    quote: 'some quote 3',
+    img: 'some img 3'
+  },
+]
 
-export default App;
+export default class App extends Component {
+  state = {
+    searchQuery: null,
+    defenseQuery: null,
+    data: data,
+  }
+
+  handleChange = (event) => {
+    //get the value of the input;
+    const value = event.target.value;
+    this.setState({ searchQuery: value });
+  }
+
+  handleClick = () => {
+    console.log('hello world', this.state.searchQuery);
+  }
+
+  render() {
+    return (
+      <div>
+        <input onChange={this.handleChange} />
+        <button onClick={this.handleClick}>Search</button>
+        {/* <Quotelist quotes={this.state.data} /> */}
+      </div>
+    )
+  }
+}
