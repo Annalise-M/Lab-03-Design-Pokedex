@@ -37,9 +37,22 @@ export default class App extends Component {
 
   handleClick = async () => {
     const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
-    console.log(fetchedData.body);
+    console.log(fetchedData.body.results);
     this.setState({ data: fetchedData })
   }
+
+  //drop down handler
+  // sortBy = (e) => {
+  //   // const value = e.target.value;
+  //   const fetchedData = type.searchQuery(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`)
+
+  //   console.log(fetchedData.body.type);
+  //   this.setState({ data: fetchedData })
+  // }
+
+  //type.searchQuery > work with this based off of type
+  //dropdown into handleChange with added other urls
+
 
   render() {
     return (
