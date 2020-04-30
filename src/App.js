@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
+// import QuoteList from './QuoteList.js';
 
 //need to input the actual pokemon data
 const data = [
@@ -34,8 +35,10 @@ export default class App extends Component {
     this.setState({ searchQuery: value });
   }
 
-  handleClick = () => {
-    console.log('hello world', this.state.searchQuery);
+  handleClick = async () => {
+    const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
+    console.log(fetchedData.body);
+    this.setState({ data: fetchedData })
   }
 
   render() {
@@ -43,7 +46,7 @@ export default class App extends Component {
       <div>
         <input onChange={this.handleChange} />
         <button onClick={this.handleClick}>Search</button>
-        {/* <Quotelist quotes={this.state.data} /> */}
+        {/* <QuoteList quotes={this.state.data} /> */}
       </div>
     )
   }
