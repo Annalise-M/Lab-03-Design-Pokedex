@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
-// import QuoteList from './QuoteList.js';
+import Pokelist from './Pokelist.js';
 
 export default class App extends Component {
   state = {
-    searchQuery: null,
-    defenseQuery: null,
+    searchQuery: '',
     data: [{}],
     selected: ''
   }
 
   handleChange = (event) => {
-    //get the value of the input;
     const value = event.target.value;
     this.setState({ searchQuery: value });
   }
 
-  handleClick = async () => {
-    // const query = this.state.query;
-    
-    const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
-    console.log(fetchedData.body.results);
-    this.setState({ data: fetchedData.body.results })
+  handleOptionChange = async (event) => {
+    const fetchedData =await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${event.target.value}`);
+    this.setState({ data: fetchedData.body.results });
   }
 
-  //type.searchQuery > work with this based off of type
-
+  handleClick = async () => {
+    if (this.state.selected === '') {
+      const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}`);
+      this.setState({ data: fetchedData.body.results });
+    } else {
+      const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${this.state.selected}`);
+      this.setState({ data: fetchedData.body.results });
+    }
+  }
 
   render() {
 
@@ -34,7 +36,6 @@ export default class App extends Component {
       <main>
       <div>
         <input onChange={this.handleChange} />
-
         <button onClick={this.handleClick}>Search</button>
         <select onChange={this.handleOptionChange}>
           <option value="" >All</option>
@@ -56,7 +57,18 @@ export default class App extends Component {
           <option value="rock" >Rock</option>
           <option value="steel" >Steel</option>\
         </select>
-      </div>
+          <div>
+            <input onChange={this.handleChange} />
+            <button onClick={this.handleClick}>Search</button>
+          </div>
+            <ul className="PokemonList">
+              {
+                this.state.data.map(item => {
+                  return <Pokelist pokemon={item}/>
+                })
+              }
+            </ul>
+          </div>
       </main>
     )
   }
