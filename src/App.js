@@ -3,6 +3,7 @@ import request from 'superagent';
 import './App.css';
 import Pokelist from './Pokelist.js';
 
+
 export default class App extends Component {
   state = {
     searchQuery: '',
@@ -57,10 +58,6 @@ export default class App extends Component {
           <option value="rock" >Rock</option>
           <option value="steel" >Steel</option>\
         </select>
-          <div>
-            <input onChange={this.handleChange} />
-            <button onClick={this.handleClick}>Search</button>
-          </div>
             <ul className="PokemonList">
               {
                 this.state.data.map(item => {
