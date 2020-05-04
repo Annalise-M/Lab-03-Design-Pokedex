@@ -17,9 +17,7 @@ export default class PokelistDetails extends Component {
                         <li>Attack: {this.props.pokemon.attack}</li>
                         <li>Defense: {this.props.pokemon.defense}</li>
                     </ul>
-                {/* <h2>{this.props.pokemon.type_1} {this.props.pokemon.type_2}</h2>
-                <h2>{this.props.pokemon.ability_hidden}</h2>
-                </li> */}
+                
                 </li>
 
             </div>
