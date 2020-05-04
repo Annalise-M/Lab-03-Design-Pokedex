@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
 import Pokelist from './Pokelist.js';
+import Header from './Header.js';
+
 
 
 export default class App extends Component {
@@ -34,6 +36,11 @@ export default class App extends Component {
   render() {
 
     return (
+      <div>
+        <section>
+          <Header greeting='Welcome!!' />
+        </section>
+      
       <main>
       <div>
         <input onChange={this.handleChange} />
@@ -56,7 +63,7 @@ export default class App extends Component {
           <option value="ice" >Ice</option>
           <option value="psychic" >Psychic</option>
           <option value="rock" >Rock</option>
-          <option value="steel" >Steel</option>\
+          <option value="steel" >Steel</option>
         </select>
             <ul className="PokemonList">
               {
@@ -67,6 +74,7 @@ export default class App extends Component {
             </ul>
           </div>
       </main>
+      </div>
     )
   }
 }
