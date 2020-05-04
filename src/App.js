@@ -21,7 +21,7 @@ export default class App extends Component {
                             />}
                         />
                         <Route
-                            path="/pokemon/:some-id"
+                            path="/pokemon/:name"
                             exact
                             render={(routerProps) => <PokelistDetails {...routerProps}
                             />}
