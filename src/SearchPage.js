@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
-import Pokelist from './Pokelist.js';
+import PokelistDetails from './PokelistDetails.js';
 import Header from './Header.js';
 
 
-
-export default class DetailPage extends Component {
+export default class SearchPage extends Component {
   state = {
     searchQuery: '',
     data: [{}],
@@ -68,7 +67,7 @@ export default class DetailPage extends Component {
             <ul className="PokemonList">
               {
                 this.state.data.map(item => {
-                  return <Pokelist pokemon={item}/>
+                  return <PokelistDetails pokemon={item}/>
                 })
               }
             </ul>

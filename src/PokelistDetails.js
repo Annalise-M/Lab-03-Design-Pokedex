@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class PokeList extends Component {
+export default class PokelistDetails extends Component {
     render() {
         return (
             <div>

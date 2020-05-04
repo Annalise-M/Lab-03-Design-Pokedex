@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import request from 'superagent';
 import { BrowserRouter as Router,
     Route, 
     Switch, 
 } from 'react-router-dom';
-import { render } from 'enzyme';
-import { Pokelist } from './Pokelist.js';
-import { DetailPage } from './DetailPage.js';
 
-export default App extends Component {
+import PokelistDetails from './PokelistDetails.js';
+//^this is my details page
+import SearchPage from './SearchPage.js';
+
+export default class App extends Component {
     render() {
         return (
             <div>
@@ -17,12 +17,14 @@ export default App extends Component {
                         <Route
                             path="/"
                             exact
-                            render={(routerProps) => <SearchPage {...routerProps} 
+                            render={(routerProps) => <SearchPage {...routerProps}
+                            />}
                         />
                         <Route
-                            path="/pokemon/:name"
+                            path="/pokemon/:some-id"
                             exact
-                            render={(routerProps) => <DetailPage {...routerProps} 
+                            render={(routerProps) => <PokelistDetails {...routerProps}
+                            />}
                         />
                     </Switch>
                 </Router>

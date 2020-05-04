@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should welcome with greeting 1`] = `ShallowWrapper {}`;
+exports[`the app should render 1`] = `ShallowWrapper {}`;
 
 exports[`the header should render 1`] = `ShallowWrapper {}`;
