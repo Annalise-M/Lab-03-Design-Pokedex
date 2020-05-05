@@ -1,7 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// import request from 'superagent';
+//Import data? 
+
 
 export default class PokelistDetails extends Component {
+    state = {
+        searchQuery: '',
+        data: [{}],
+        selected: ''
+    }
+
+    handleChange = (e) => {
+        const value = e.target.value
+        this.setState({searchQuery: value})
+    }
+
+    handleClick = async () => {
+        const fetchedData = this.state.data;
+        this.setState({ data: fetchedData })
+    }
+
+    // async componentDidMount() {
+    //     const fetchedData = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.props.match.params.name}`)
+    //     this.setState({ pokemon: fetchedData.body.result })
+    // }
+
     render() {
         const pokemon = this.props.pokemon
         return (
@@ -16,6 +40,7 @@ export default class PokelistDetails extends Component {
                         <li>Type: {this.props.pokemon.type_1} {this.props.pokemon.type_2}</li>
                         <li>Attack: {this.props.pokemon.attack}</li>
                         <li>Defense: {this.props.pokemon.defense}</li>
+                        <li>Hp: {this.props.pokemon.hp}</li>
                     </ul>
                 
                 </li>
