@@ -12,6 +12,15 @@ export default class SearchPage extends Component {
     selected: ''
   }
 
+  //need to put the async function below
+  // async componentDidMount() {
+  //   const searchQuery = this.state.searchQuery;
+  //   const fetchedData = await request.get(``)
+    // console.log(data.body);
+
+    // this.setState({ data.body })
+  // }
+
   handleChange = (event) => {
     const value = event.target.value;
     this.setState({ searchQuery: value });
