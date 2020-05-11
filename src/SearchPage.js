@@ -9,18 +9,16 @@ export default class SearchPage extends Component {
   state = {
     searchQuery: '',
     data: [{}],
-    selected: ''
+    selected: '',
+    
   }
 
   //need to put the async function below
   // async componentDidMount() {
-  //   const searchQuery = this.state.searchQuery;
-  //   const fetchedData = await request.get(``)
-    // console.log(data.body);
-
-    // this.setState({ data.body })
+  //     const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${this.state.}`);
+  //     this.setState({ pokemon: data.body });
   // }
-
+  
   handleChange = (event) => {
     const value = event.target.value;
     this.setState({ searchQuery: value });
@@ -28,7 +26,7 @@ export default class SearchPage extends Component {
 
   handleOptionChange = async (event) => {
     const fetchedData =await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${event.target.value}`);
-    this.setState({ data: fetchedData.body.results });
+    this.setState({ data: fetchedData.body.results })
   }
 
   handleClick = async () => {
@@ -48,7 +46,6 @@ export default class SearchPage extends Component {
         <section>
           <Header greeting='Welcome!!' />
         </section>
-      
       <main>
       <div>
         <input onChange={this.handleChange} />

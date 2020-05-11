@@ -3,18 +3,14 @@ import { BrowserRouter as Router,
     Route, 
     Switch, 
 } from 'react-router-dom';
-
+import SearchPage from './SearchPage.js';
 import PokelistDetails from './PokelistDetails.js';
 //^this is my details page
-import SearchPage from './SearchPage.js';
 
 export default class App extends Component {
     render() {
         return (
             <div>
-                <div>
-                    Header
-                </div>
                 <Router>
                     <Switch>
                         <Route
