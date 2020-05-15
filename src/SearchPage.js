@@ -10,14 +10,13 @@ export default class SearchPage extends Component {
     searchQuery: '',
     data: [{}],
     selected: '',
-    
   }
 
-  //need to put the async function below
-  // async componentDidMount() {
-  //     const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.searchQuery}&type=${this.state.}`);
-  //     this.setState({ pokemon: data.body });
-  // }
+  async componentDidMount() {
+      const query = this.state.query;
+      const data = await request.get('');
+      this.setState({ pokemon: data.body });
+  }
   
   handleChange = (event) => {
     const value = event.target.value;
@@ -40,11 +39,12 @@ export default class SearchPage extends Component {
   }
 
   render() {
-
     return (
       <div>
-        <section>
-          <Header greeting='Welcome!!' />
+        <section className="category-section">
+
+        <Header greeting='Search Pokemon!' />
+
         </section>
       <main>
       <div>
