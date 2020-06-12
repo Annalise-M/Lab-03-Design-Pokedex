@@ -66,3 +66,15 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+/// Notes:
+
+    06/12/2020 - Have "NOTED" out all things problematic. 
+        Need to check the SEARCH BAR function as it's totally not working, as in AT ALL. 
+        The drop down is fuctioning. 
+        Need to look into the pagination option once sorted. 
+        And a potential search fuction change continuing / responding once the first or any other searches have been done. 
+        Need to rewrite the ComponentDidMount in both of the Search files.
+        Also get to Key Prop Error - that shit is annoying as fuck.
