@@ -13,7 +13,7 @@ export default class SearchPage extends Component {
   }
 
   async componentDidMount() {
-      const query = this.state.query;
+      // const query = this.state.query;
       const data = await request.get('');
       this.setState({ pokemon: data.body });
   }
